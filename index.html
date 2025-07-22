@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Groceit Login</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDo-lF9srWfiRXIl7qqldpI2NH4nPulNeM",
+      authDomain: "groceit-d91f1.firebaseapp.com",
+      projectId: "groceit-d91f1",
+      storageBucket: "groceit-d91f1.appspot.com",
+      messagingSenderId: "459230201918",
+      appId: "1:459230201918:web:7ca369114fade01b60e96f"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+<body>
+  <div class="background">
+    <div class="login-container">
+      <!-- ✅ Logo Section -->
+      <div class="logo-wrapper">
+        <img src="groceit.png" class="logo" alt="Groceit Logo" />
+      </div>
+
+      <h2>Welcome Back to Groceit</h2>
+      <form id="login-form">
+        <div class="input-group">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Password</label>
+        </div>
+        <button type="submit">Login</button>
+        <div class="switch-link">
+          Don't have an account? <a href="signup.html">Sign up here</a>
+        </div>
+      </form>
+
+      <!-- ✅ Customer Care Button -->
+      <div style="margin-top: 30px;">
+        <a href="#" style="font-size: 14px; color: #28a745;">📞 Customer Care</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

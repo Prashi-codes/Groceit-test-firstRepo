@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Groceit Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDo-lF9srWfiRXIl7qqldpI2NH4nPulNeM",
+      authDomain: "groceit-d91f1.firebaseapp.com",
+      projectId: "groceit-d91f1",
+      storageBucket: "groceit-d91f1.appspot.com",
+      messagingSenderId: "459230201918",
+      appId: "1:459230201918:web:7ca369114fade01b60e96f"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+<body>
+  <div class="background">
+    <div class="login-container">
+      <!-- Logo -->
+      <div class="logo-wrapper">
+        <img src="logo.jpg" class="logo" alt="Groceit Logo" />
+      </div>
+
+      <h2 id="welcome-text">Loading...</h2>
+      <h2 id="welcome-text">Welcome, Prashanth!</h2>
+
+<a href="products.html" style="display:inline-block; margin: 20px 0; color:#28a745;">🛒 Browse Products</a>
+
+<button onclick="logout()">Logout</butto
+
+
+      <button onclick="logout()">Logout</button>
+
+      <!-- ✅ Footer Help Links -->
+      <div style="margin-top: 40px; font-size: 14px; color: #333;">
+        <a href="#" style="display: block; color: #28a745; margin: 6px 0;">📞 Customer Care</a>
+        <a href="#" style="display: block; color: #28a745; margin: 6px 0;">❓ Help</a>
+        <a href="#" style="display: block; color: #28a745; margin: 6px 0;">📘 FAQs</a>
+      </div>
+    </div>
+  </div>
+
+<script>
+  firebase.auth().onAuthStateChanged((user) => {
+    const welcomeText = document.getElementById("welcome-text");
+    if (user) {
+      const name = user.displayName || user.email || "User";
+      welcomeText.innerText = `Welcome, ${name}!`;
+
+      // ✅ Auto redirect to products.html after 3 seconds
+      setTimeout(() => {
+        window.location.href = "products.html";
+      }, 3000); // 3000 ms = 3 seconds
+
+    } else {
+      window.location.href = "index.html"; // Not logged in
+    }
+  });
+
+  function logout() {
+    firebase.auth().signOut().then(() => {
+      alert("Logged out");
+      window.location.href = "index.html";
+    });
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
